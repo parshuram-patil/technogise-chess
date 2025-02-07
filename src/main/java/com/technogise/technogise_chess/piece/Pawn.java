@@ -13,8 +13,17 @@ public class Pawn extends Piece {
     @Override
     public List<Position> getPossibleMoves() {
         List<Position> moves = new ArrayList<>();
-        if (position.row() < 8) {
-            moves.add(new Position(position.column(), position.row() + 1));
+        int[][] directions = {
+                {0, 1} // Vertical UP
+        };
+
+        for (int[] dir : directions) {
+            char newCol = (char) (position.column() + dir[0]);
+            int newRow = position.row() + dir[1];
+            Position move = new Position(newCol, newRow);
+            if (move.isValid()) {
+                moves.add(move);
+            }
         }
 
         return moves;

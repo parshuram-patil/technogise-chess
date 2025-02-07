@@ -33,6 +33,18 @@ class PawnTest {
     }
 
     @Test
+    void shouldNotMoveForValidPosition() {
+        Position position = new Position('G', 8);
+        Pawn pawn = new Pawn(position);
+
+        List<Position> possibleMoves = pawn.getPossibleMoves();
+
+
+        assertTrue(position.isValid());
+        assertEquals(List.of(), possibleMoves);
+    }
+
+    @Test
     void shouldGetMovesForInValidPosition() {
         Position position = new Position('A', 9);
         Pawn pawn = new Pawn(position);
