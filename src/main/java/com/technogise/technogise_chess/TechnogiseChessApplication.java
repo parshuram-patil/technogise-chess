@@ -6,17 +6,13 @@ import com.technogise.technogise_chess.piece.King;
 import com.technogise.technogise_chess.piece.Pawn;
 import com.technogise.technogise_chess.piece.Piece;
 import com.technogise.technogise_chess.piece.Queen;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.List;
 import java.util.Scanner;
 
-@SpringBootApplication
 public class TechnogiseChessApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TechnogiseChessApplication.class, args);
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("Enter input: ");
 		String input = scanner.nextLine();
