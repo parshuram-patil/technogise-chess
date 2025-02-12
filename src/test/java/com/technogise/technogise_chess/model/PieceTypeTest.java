@@ -17,6 +17,4 @@ class PieceTypeTest {
         assertEquals(PieceType.QUEEN, PieceType.valueOf("queen".toUpperCase()));
         assertEquals(PieceType.PAWN, PieceType.valueOf("PAWN"));
     }
-
-
 }

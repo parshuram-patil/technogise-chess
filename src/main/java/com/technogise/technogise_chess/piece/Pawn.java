@@ -15,16 +15,16 @@ public class Pawn extends Piece {
 
     @Override
     public int[][] getDirections() {
+        int rowDirection = color.direction;
+        int[][] directions;
 
-        if ((position.row() == 2 && PieceColor.WHITE.equals(color)) || (position.row() == 7 && PieceColor.BLACK.equals(color))) {
-            return new int[][]{
-                    {0, color.value}, {0, 2 * color.value}  // Vertical UP
-            };
+        if (position.row() == color.firstRow) {
+            directions = new int[][]{{0, rowDirection}, {0, 2 * rowDirection}}; // First move
         } else {
-            return new int[][]{
-                    {0, color.value} // Vertical UP
-            };
+            directions = new int[][]{{0, rowDirection}}; //Subsequent move
         }
+
+        return directions;
     }
 
     @Override
