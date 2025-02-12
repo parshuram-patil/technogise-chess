@@ -1,5 +1,6 @@
 package com.technogise.technogise_chess.piece;
 
+import com.technogise.technogise_chess.model.PieceColor;
 import com.technogise.technogise_chess.model.Position;
 
 import java.util.ArrayList;
@@ -7,6 +8,7 @@ import java.util.List;
 
 public abstract class Piece {
     protected final Position position;
+    protected final PieceColor color;
 
     public abstract int[][] getDirections();
 
@@ -14,6 +16,12 @@ public abstract class Piece {
 
     public Piece(Position position) {
         this.position = position;
+        this.color = PieceColor.WHITE;
+    }
+
+    public Piece(Position position, PieceColor color) {
+        this.position = position;
+        this.color = color;
     }
 
     public List<Position> getPossibleMoves() {
