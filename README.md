@@ -20,14 +20,40 @@ Simulate the movement of the following three pieces on an empty chessboard:
 1. Pawn - It can only move 1 step at a time, in the vertical forward direction.
 2. King - It can only move 1 step at a time, in all 8 directions (vertical, horizontal and diagonal)
 3. Queen - It can move across the board in all 8 directions.
+4. Horse - It moves in an "L" shape: 2 squares in one direction (either vertical or horizontal), followed by 1 square
+   perpendicular to that direction. It can jump over other pieces.
+5. Bishop - It can move any number of steps, but only in diagonal directions.
+6. Rook - It can move any number of steps, but only in the vertical or horizontal direction.
+
+When creating a new chess piece, an optional color parameter can be provided. If no color is specified, the default
+color will be **white**.
+
+Example:
+
+```java
+Piece king=new King(new Position('D',5)); // Defaults to WHITE
+        Piece blackQueen=new Queen(new Position('E',4),PieceColor.BLACK); // Explicitly setting BLACK color
+```
 
 The Input and Output is illustrated in Usage section below.
 
 ## Usage
 
-- Enter input in the format: `<Piece>, <Position>`
-- Example: `King, D5`
-- Output: Possible moves for the piece
+- Input Format
+  ```text
+  <Piece>, <Position>[, <Color>] 
+  ```
+  where, Color is optional. If provided, it will be used; otherwise, the piece defaults to WHITE.
+
+- Examples:
+  ```text
+    King, D5          // White King at D5
+  ``` 
+
+  ```text
+    Queen, E4, BLACK  // Black Queen at E4
+  ```
+- Output: List of all possible moves
 
 ## Testing
 
