@@ -8,7 +8,7 @@ class PieceTypeTest {
 
     @Test
     void shouldMatchTypeCount() {
-        assertEquals(3, PieceType.values().length);
+        assertEquals(6, PieceType.values().length);
     }
 
     @Test
@@ -16,5 +16,9 @@ class PieceTypeTest {
         assertEquals(PieceType.KING, PieceType.valueOf("KiNG".toUpperCase()));
         assertEquals(PieceType.QUEEN, PieceType.valueOf("queen".toUpperCase()));
         assertEquals(PieceType.PAWN, PieceType.valueOf("PAWN"));
+        assertEquals(PieceType.HORSE, PieceType.valueOf("HORSE"));
+        assertEquals(PieceType.BISHOP, PieceType.valueOf("BISHOP"));
+        assertEquals(PieceType.ROOK, PieceType.valueOf("ROOK"));
+
     }
 }

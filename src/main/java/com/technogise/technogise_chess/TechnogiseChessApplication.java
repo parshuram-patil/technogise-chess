@@ -1,5 +1,6 @@
 package com.technogise.technogise_chess;
 
+import com.technogise.technogise_chess.model.PieceColor;
 import com.technogise.technogise_chess.model.PieceType;
 import com.technogise.technogise_chess.model.Position;
 import com.technogise.technogise_chess.piece.King;
@@ -26,17 +27,22 @@ public class TechnogiseChessApplication {
 	private static List<Position> getPossibleMoves(String input) {
 		String[] parts = input.split(", ");
 
-		if (parts.length != 2) {
+		if (parts.length < 2) {
 			throw new IllegalArgumentException("Invalid Input");
 		}
+
+		PieceColor color = PieceColor.WHITE;
+		if (parts.length == 3)
+			color = PieceColor.valueOf(parts[2]);
+
 
 		PieceType pieceType = PieceType.valueOf(parts[0].toUpperCase());
 		Position position = new Position(parts[1].charAt(0), Character.getNumericValue(parts[1].charAt(1)));
 		Piece piece;
 		switch (pieceType) {
-			case PAWN -> piece = new Pawn(position);
-			case KING -> piece = new King(position);
-			case QUEEN -> piece = new Queen(position);
+			case PAWN -> piece = new Pawn(position, color);
+			case KING -> piece = new King(position, color);
+			case QUEEN -> piece = new Queen(position, color);
 			default -> throw new IllegalArgumentException("Invalid Piece");
 		}
 		return piece.getPossibleMoves();
