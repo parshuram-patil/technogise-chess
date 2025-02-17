@@ -15,11 +15,13 @@ public abstract class Piece {
     public abstract boolean canMoveAcrossBoard();
 
     public Piece(Position position) {
-        this.position = position;
-        this.color = PieceColor.WHITE;
+        this(position, PieceColor.WHITE);
     }
 
     public Piece(Position position, PieceColor color) {
+        if (!position.isValid()) {
+            throw new IllegalArgumentException("Invalid Position: " + position);
+        }
         this.position = position;
         this.color = color;
     }

@@ -56,14 +56,11 @@ class PawnTest {
     }
 
     @Test
-    void shouldGetMovesForInValidPosition() {
+    void shouldNotCreatePieceWithInvalidPosition() {
         Position position = new Position('A', 9);
-        Pawn pawn = new Pawn(position);
 
-        List<Position> possibleMoves = pawn.getPossibleMoves();
-
-        assertFalse(position.isValid());
-        assertEquals(List.of(), possibleMoves);
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> new Pawn(position));
+        assertEquals("Invalid Position: A9", ex.getMessage());
     }
 
     @Test

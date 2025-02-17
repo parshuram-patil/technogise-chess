@@ -19,15 +19,11 @@ class KingTest {
     }
 
     @Test
-    void shouldGetMovesForInValidPosition() {
+    void shouldNotCreatePieceWithInvalidPosition() {
         Position position = new Position('J', 5);
-        King king = new King(position);
 
-        List<Position> possibleMoves = king.getPossibleMoves();
-
-        assertFalse(position.isValid());
-        assertEquals(0, possibleMoves.size());
-        assertEquals(List.of(), possibleMoves);
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> new King(position));
+        assertEquals("Invalid Position: J5", ex.getMessage());
     }
 
     @Test

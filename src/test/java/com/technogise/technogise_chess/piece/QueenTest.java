@@ -19,15 +19,11 @@ class QueenTest {
     }
 
     @Test
-    void shouldGetMovesForInValidPosition() {
+    void shouldNotCreatePieceWithInvalidPosition() {
         Position position = new Position('Z', 0);
-        Queen queen = new Queen(position);
 
-        List<Position> possibleMoves = queen.getPossibleMoves();
-
-        assertFalse(position.isValid());
-        assertEquals(0, possibleMoves.size());
-        assertEquals(List.of(), possibleMoves);
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> new Queen(position));
+        assertEquals("Invalid Position: Z0", ex.getMessage());
     }
 
     @Test
