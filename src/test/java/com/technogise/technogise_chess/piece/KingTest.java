@@ -1,5 +1,6 @@
 package com.technogise.technogise_chess.piece;
 
+import com.technogise.technogise_chess.model.PieceColor;
 import com.technogise.technogise_chess.model.Position;
 import org.junit.jupiter.api.Test;
 
@@ -12,10 +13,15 @@ class KingTest {
     @Test
     void shouldCreateKing() {
         Position position = new Position('E', 7);
-        King king = new King(position);
+        King whiteking = new King(position);
+        King blackking = new King(position, PieceColor.BLACK);
 
-        assertNotNull(king);
-        assertEquals(king.position, position);
+        assertNotNull(whiteking);
+        assertEquals(whiteking.position, position);
+        assertEquals(whiteking.color, PieceColor.WHITE);
+        assertNotNull(blackking);
+        assertEquals(blackking.position, position);
+        assertEquals(blackking.color, PieceColor.BLACK);
     }
 
     @Test

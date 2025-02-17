@@ -1,5 +1,6 @@
 package com.technogise.technogise_chess.piece;
 
+import com.technogise.technogise_chess.model.PieceColor;
 import com.technogise.technogise_chess.model.Position;
 import org.junit.jupiter.api.Test;
 
@@ -12,10 +13,15 @@ class BishopTest {
     @Test
     void shouldCreateBishop() {
         Position position = new Position('B', 8);
-        Bishop bishop = new Bishop(position);
+        Bishop whiteBishop = new Bishop(position, PieceColor.WHITE);
+        Bishop blackBishop = new Bishop(position, PieceColor.BLACK);
 
-        assertNotNull(bishop);
-        assertEquals(bishop.position, position);
+        assertNotNull(whiteBishop);
+        assertEquals(whiteBishop.position, position);
+        assertEquals(whiteBishop.color, PieceColor.WHITE);
+        assertNotNull(blackBishop);
+        assertEquals(blackBishop.position, position);
+        assertEquals(blackBishop.color, PieceColor.BLACK);
     }
 
     @Test

@@ -1,5 +1,6 @@
 package com.technogise.technogise_chess.piece;
 
+import com.technogise.technogise_chess.model.PieceColor;
 import com.technogise.technogise_chess.model.Position;
 import org.junit.jupiter.api.Test;
 
@@ -12,10 +13,15 @@ class RookTest {
     @Test
     void shouldCreateRook() {
         Position position = new Position('H', 1);
-        Rook rook = new Rook(position);
+        Rook whiteRook = new Rook(position, PieceColor.WHITE);
+        Rook blackRook = new Rook(position, PieceColor.BLACK);
 
-        assertNotNull(rook);
-        assertEquals(rook.position, position);
+        assertNotNull(whiteRook);
+        assertEquals(whiteRook.position, position);
+        assertEquals(whiteRook.color, PieceColor.WHITE);
+        assertNotNull(blackRook);
+        assertEquals(blackRook.position, position);
+        assertEquals(blackRook.color, PieceColor.BLACK);
     }
 
     @Test

@@ -1,10 +1,15 @@
 package com.technogise.technogise_chess.piece;
 
+import com.technogise.technogise_chess.model.PieceColor;
 import com.technogise.technogise_chess.model.Position;
 
 public class King extends Piece {
     public King(Position position) {
         super(position);
+    }
+
+    public King(Position position, PieceColor color) {
+        super(position, color);
     }
 
     @Override
