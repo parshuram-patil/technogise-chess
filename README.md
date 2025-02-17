@@ -31,8 +31,8 @@ color will be **white**.
 Example:
 
 ```java
-Piece king=new King(new Position('D',5)); // Defaults to WHITE
-        Piece blackQueen=new Queen(new Position('E',4),PieceColor.BLACK); // Explicitly setting BLACK color
+Piece king = new King(new Position('D',5)); // Defaults to WHITE
+Piece blackQueen = new Queen(new Position('E',4),PieceColor.BLACK); // Explicitly setting BLACK color
 ```
 
 The Input and Output is illustrated in Usage section below.
